@@ -1,0 +1,1 @@
+//  Class for enemies or otherwise shootable obstacles

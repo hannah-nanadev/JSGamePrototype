@@ -26,19 +26,19 @@ class Player extends GameObject
         //Movement
         if(input.isKeyDown("ArrowRight"))
         {
-            physics.velocity.x = 100;
+            physics.velocity.x = 750;
         }
         else if(input.isKeyDown("ArrowLeft"))
         {
-            physics.velocity.x = -100;
+            physics.velocity.x = -750;
         }
         else if(input.isKeyDown("ArrowUp"))
         {
-            physics.velocity.y = 100;
+            physics.velocity.y = -750;
         }
         else if(input.isKeyDown("ArrowDown"))
         {
-            physics.velocity.y = -100;
+            physics.velocity.y = 750;
         }
         else
         {

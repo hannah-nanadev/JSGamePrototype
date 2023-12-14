@@ -12,13 +12,12 @@ class Alien extends Shootable{
     constructor(x, y, target)
     {
         super(x, y, Images.enemy);
-
-        //this.target = this.getComponent(target);
+        this.target = target;        
     }
 
     update(deltaTime){
-        //px = target.x;
-        //py = target.y;
+        let px = this.target.getX();
+        let py = this.target.getY();
     }
 
 }

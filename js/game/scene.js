@@ -13,6 +13,9 @@ class Scene extends Game
         //Create GameObjects
         const player = new Player(this.canvas.width / 2 - 25, this.canvas.height / 2 - 25);
         this.addGameObject(player);
+
+        //Set camera target to player
+        this.camera.target = player;
     }
 }
 

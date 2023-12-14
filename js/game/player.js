@@ -11,13 +11,20 @@ class Player extends GameObject
     constructor(x, y)
     {
         super(x, y);
-        this.Renderer = new Renderer("white", 50, 50, Images.player);
+        this.Renderer = new Renderer("white", 45, 75, Images.player);
         this.addComponent(this.Renderer);
         this.addComponent(new Physics({ x: 0, y: 0 }, { x: 0, y: 0 })); // Add physics
         this.addComponent(new Input());
     }
 
     //Update function - Runs every frame, does game logic
+    update(deltaTime)
+    {
+        const physics = this.getComponent(Physics);
+        const input = this.getComponent(Input);
+
+        super.update(deltaTime);
+    }
     
 }
 

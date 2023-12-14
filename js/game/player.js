@@ -13,7 +13,7 @@ class Player extends GameObject
         super(x, y);
         this.Renderer = new Renderer("white", 45, 75, Images.player);
         this.addComponent(this.Renderer);
-        this.addComponent(new Physics({ x: 0, y: 0 }, { x: 0, y: 0 })); // Add physics
+        this.addComponent(new Physics({ x: 0, y: 0 }, { x: 0, y: 0 }, { x: 0, y: 0 })); // Add physics
         this.addComponent(new Input());
     }
 

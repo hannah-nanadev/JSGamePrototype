@@ -23,6 +23,30 @@ class Player extends GameObject
         const physics = this.getComponent(Physics);
         const input = this.getComponent(Input);
 
+        //Movement
+        if(input.isKeyDown("ArrowRight"))
+        {
+            physics.velocity.x = 100;
+        }
+        else if(input.isKeyDown("ArrowLeft"))
+        {
+            physics.velocity.x = -100;
+        }
+        else if(input.isKeyDown("ArrowUp"))
+        {
+            physics.velocity.y = 100;
+        }
+        else if(input.isKeyDown("ArrowDown"))
+        {
+            physics.velocity.y = -100;
+        }
+        else
+        {
+            physics.velocity.x = 0;
+            physics.velocity.y = 0;
+        }
+
+
         super.update(deltaTime);
     }
     

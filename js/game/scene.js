@@ -14,7 +14,7 @@ class Scene extends Game
 
         //Create GameObjects
         const player = new Player(this.canvas.width / 2 - 25, this.canvas.height / 2 - 25);
-        const alien = new Alien(this.canvas.width / 2 - 50, this.canvas.height / 2 - 50, player, 1, Images.enemy);
+        const alien = new Alien(this.canvas.width / 2 - 100, this.canvas.height / 2 - 100, player, 1, Images.enemy);
 
         this.addGameObject(player);
         this.addGameObject(alien);

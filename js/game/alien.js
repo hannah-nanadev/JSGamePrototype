@@ -16,7 +16,7 @@ class Alien extends GameObject{
         this.speed = speed;
         
         this.addComponent(new Physics({x: 50, y: 50}, {x: 0, y: 0}, {x: 0, y: 0}));
-        this.addComponent(new Renderer('white', 50, 50, imageId));
+        this.addComponent(new Renderer('white', 40, 45, imageId));
     }
 
     update(deltaTime){

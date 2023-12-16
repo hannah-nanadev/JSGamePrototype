@@ -30,8 +30,8 @@ class Alien extends GameObject{
 
         let dis = Math.sqrt(dx*dx+dy*dy);
 
-        physics.velocity.x += dx/dis*this.speed;
-        physics.velocity.y += dy/dis*this.speed;
+        this.x += dx/dis*this.speed;
+        this.y += dy/dis*this.speed;
 
         super.update(deltaTime);
     }

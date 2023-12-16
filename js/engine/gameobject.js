@@ -43,6 +43,16 @@ class GameObject {
       // Find the first component that is an instance of componentClass.
       return this.components.find((component) => component instanceof componentClass);
     }
+
+    //Custom methods not built by Naoise - getX/getY so game objects can get each others' positions
+    getX()
+    {
+        return this.x;
+    }
+    getY()
+    {
+        return this.y;
+    }
   }
   
   // The GameObject class is exported as the default export of this module.

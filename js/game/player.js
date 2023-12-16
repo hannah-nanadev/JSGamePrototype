@@ -49,15 +49,6 @@ class Player extends GameObject
 
         super.update(deltaTime);
     }
-
-    getX()
-    {
-        return this.x;
-    }
-    getY()
-    {
-        return this.y;
-    }
     
 }
 

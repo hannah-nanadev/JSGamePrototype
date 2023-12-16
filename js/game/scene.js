@@ -3,7 +3,6 @@
 // Necessary imports
 import Game from "../engine/game.js";
 import Player from "./player.js";
-import Shootable from "./shootable.js";
 import Alien from "./alien.js";
 import {Images} from "../engine/resources.js";
 
@@ -15,7 +14,7 @@ class Scene extends Game
 
         //Create GameObjects
         const player = new Player(this.canvas.width / 2 - 25, this.canvas.height / 2 - 25);
-        const alien = new Alien(this.canvas.width / 2 - 50, this.canvas.height / 2 - 50, player);
+        const alien = new Alien(this.canvas.width / 2 - 50, this.canvas.height / 2 - 50, player, 1, Images.enemy);
 
         this.addGameObject(player);
         this.addGameObject(alien);

@@ -6,3 +6,10 @@ TEMP rocket png from here https://www.freeiconspng.com/img/30450
 Alien png from here https://www.flaticon.com/free-icon/alien_10928949
 
 SFX generated using https://raylibtech.itch.io/rfxgen
+
+CONTROLS:
+Arrow keys/WASD to move
+Check console via inspect element to see score after dying!
+Refresh page to restart.
+
+Clone source then open index.html to play.

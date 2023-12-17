@@ -99,6 +99,12 @@ class Game {
     this.gameObjectsToRemove.push(gameObject);
   }
 
+  //MADE BY ME - Method to retrieve a specific game object from array
+  getGameObject(key)
+  {
+    return this.gameObjects[key];
+  }
+
   // This method resets the game to its initial state and then restarts it.
   reset() {
     // Stop the game.

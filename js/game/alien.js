@@ -8,15 +8,14 @@ import Player from "./player.js";
 
 class Alien extends GameObject{
 
-    constructor(x, y, target, speed, imageId)
+    constructor(x, y, speed, target)
     {
         super(x, y);
-
+        this.speed = speed
         this.target = target;
-        this.speed = speed;
         
-        this.addComponent(new Physics({x: 50, y: 50}, {x: 0, y: 0}, {x: 0, y: 0}));
-        this.addComponent(new Renderer('white', 40, 45, imageId));
+        this.addComponent(new Physics({x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}));
+        this.addComponent(new Renderer('white', 40, 45, Images.enemy));
     }
 
     update(deltaTime){

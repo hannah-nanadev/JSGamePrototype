@@ -62,13 +62,12 @@ class Player extends GameObject
                 }
             }
 
+            //Spawn enemies
+
+
 
             super.update(deltaTime);
 
-            if(this.lives==0)
-            {
-                this.die();
-            }
         }
         
     }
@@ -76,15 +75,24 @@ class Player extends GameObject
     hitByEnemy(){
         //Method to be ran when hit by an enemy - controls life loss and iframes
         if(!this.isInvulnerable){
+
             //Take away lifes and give iframes
             this.lives--;
             this.isInvulnerable = true;
             AudioFiles.hurt.play();
 
-            //Wait until end of iframes then make vulnerable
-            setTimeout(() => {
-                this.isInvulnerable = false;
-            }, 2000);
+            if(this.lives<=0)
+            {
+                this.die();
+            }
+            else
+            {
+                //Wait until end of iframes then make vulnerable                
+                setTimeout(() => {
+                    this.isInvulnerable = false;
+                }, 2000);
+            }
+
         }
     }
 
@@ -95,6 +103,13 @@ class Player extends GameObject
         const renderer = this.getComponent(Renderer);
         renderer.setImage(Images.nothing);
     }
+
+    areTheyDead() //For outside objects to check if player is alive or not
+    {
+        return this.dead;
+    }
+
+
     
 }
 

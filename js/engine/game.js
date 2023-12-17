@@ -1,3 +1,4 @@
+//All unchanged from naoise's except one getter
 // This class depends on the Camera, which is a separate module and needs to be imported.
 import Camera from './camera.js';
 

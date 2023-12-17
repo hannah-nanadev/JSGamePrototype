@@ -1,3 +1,4 @@
+//Format from Naoise's engine
 // Create an Images object to hold the Image instances for the player and the enemy.
 const Images = {
   player: new Image(), // The Image instance for the player.

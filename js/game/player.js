@@ -30,7 +30,7 @@ class Player extends GameObject
             const physics = this.getComponent(Physics);
             const input = this.getComponent(Input);
 
-            //Movement
+            //Movement - adapted from Naoise's code
             if(input.isKeyDown("KeyD")||input.isKeyDown("ArrowRight"))
             {
                 physics.velocity.x = 500;
@@ -62,10 +62,6 @@ class Player extends GameObject
                 }
             }
 
-            //Spawn enemies
-
-
-
             super.update(deltaTime);
 
         }
@@ -76,7 +72,7 @@ class Player extends GameObject
         //Method to be ran when hit by an enemy - controls life loss and iframes
         if(!this.isInvulnerable){
 
-            //Take away lifes and give iframes
+            //Take away lifes and give iframes - kill if out of lives
             this.lives--;
             this.isInvulnerable = true;
             AudioFiles.hurt.play();
@@ -96,7 +92,7 @@ class Player extends GameObject
         }
     }
 
-    die(){
+    die(){ //Method for when player dies
         AudioFiles.explode.play();
         this.dead = true;
 

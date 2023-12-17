@@ -1,3 +1,4 @@
+//VERY naoise's code - one of the most important engine elements
 // This class depends on the Component, which is a separate module and needs to be imported.
 import Component from './component.js';
 

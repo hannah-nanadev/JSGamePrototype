@@ -1,3 +1,4 @@
+//Code from Naoise's engine
 // This class represents a Component which is usually a reusable and attachable unit of game behavior.
 class Component {
     // The constructor initializes a new instance of the Component class. 

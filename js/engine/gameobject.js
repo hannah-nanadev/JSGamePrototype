@@ -1,3 +1,4 @@
+//Almost entirely Naoise's - I only added a getter method for position
 // This class represents a GameObject which is an entity in your game.
 class GameObject {
     // The constructor initializes a new instance of the GameObject class.

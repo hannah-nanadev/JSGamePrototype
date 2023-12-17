@@ -8,6 +8,7 @@ class Alien extends GameObject{
 
     constructor(x, y, speed, target)
     {
+        //Initialise variables and components
         super(x, y);
         this.speed = speed
         this.target = target;
@@ -17,13 +18,12 @@ class Alien extends GameObject{
     }
 
     update(deltaTime){
+        //Make alien move towards player
         let px = this.target.getX();
         let py = this.target.getY();
 
         let dx = px-this.x;
         let dy = py-this.y;
-
-        const physics = this.getComponent(Physics);
 
         let dis = Math.sqrt(dx*dx+dy*dy);
 

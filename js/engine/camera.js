@@ -1,3 +1,4 @@
+//code from Naoise's engine
 // This class relies on the Renderer, which is a separate module and needs to be imported.
 import Renderer from "./renderer.js";
 

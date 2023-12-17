@@ -1,3 +1,4 @@
+//code from Naoise's engine
 // Import the Component parent class.
 import Component from './component.js';
 

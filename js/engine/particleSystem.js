@@ -1,3 +1,4 @@
+//Naoise's code - probably unused
 // The required modules and classes are imported at the top of the script.
 import GameObject from './gameobject.js';
 import Particle from './particle.js';

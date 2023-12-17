@@ -9,6 +9,7 @@ class Scene extends Game
 {
     constructor(canvasId)
     {
+        //Initialise game variables
         super(canvasId);
         this.canSpawn = true;
         this.score = -1;
@@ -28,9 +29,10 @@ class Scene extends Game
     gameLoop(currentFrameTime){
         super.gameLoop(currentFrameTime);
         
+        //Checks if player is dead before doing anything else
         if(!this.player.areTheyDead())
         {
-            if(this.canSpawn)
+            if(this.canSpawn) //Enemy spawner
             {
                 //Get and randomize necessary variables
                 const pX = this.player.getX();
@@ -38,7 +40,7 @@ class Scene extends Game
 
                 let thing = 200;
 
-                const factor = Math.random();
+                const factor = Math.random(); //Randomizes direction of spawning a little (poorly)
                 if(factor<0.5)
                 {
                     thing = thing*-1;
@@ -47,8 +49,9 @@ class Scene extends Game
                 const aX = (Math.random() * ((this.canvas.width)+pX))+thing;
                 const aY = (Math.random() * ((this.canvas.height)+pY))+thing;
 
-                const aspeed = Math.random()*3.5;
+                const aspeed = Math.random()*3;
 
+                //Add randomized alien to game
                 this.addGameObject(new Alien(aX, aY, aspeed, this.player));
 
                 //Temporarily disable spawning
@@ -60,6 +63,7 @@ class Scene extends Game
 
             if(this.canAddScore)
             {
+                //Adds score every 0.25 secs
                 this.score++;
                 this.canAddScore = false;
 
@@ -71,6 +75,7 @@ class Scene extends Game
         else{
             if(!this.announcedScore)
             {
+                //Announces score in console upon death
                 console.log("Game over! " + this.score + " points");
                 this.announcedScore = true;
             }

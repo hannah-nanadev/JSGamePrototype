@@ -1,3 +1,4 @@
+//Naoise's code
 // Import the required modules and classes.
 import Component from './component.js';
 import Renderer from './renderer.js';

@@ -1,3 +1,4 @@
+//Almost all of this is Naoise's
 // Import the required modules and classes.
 import Component from './component.js';
 

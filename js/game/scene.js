@@ -11,9 +11,13 @@ class Scene extends Game
     {
         super(canvasId);
         this.canSpawn = true;
+        this.score = -1;
+        this.canAddScore = true;
+        this.announcedScore = false;
 
         //Create GameObjects
         const player = new Player(this.canvas.width / 2 - 25, this.canvas.height / 2 - 25);
+        this.player = player;
 
         this.addGameObject(player);
         
@@ -23,28 +27,55 @@ class Scene extends Game
 
     gameLoop(currentFrameTime){
         super.gameLoop(currentFrameTime);
-        const player = this.getGameObject(0);
         
-        if(this.canSpawn&&(!player.areTheyDead()))
+        if(!this.player.areTheyDead())
         {
+            if(this.canSpawn)
+            {
+                //Get and randomize necessary variables
+                const pX = this.player.getX();
+                const pY = this.player.getY();
 
-            //Get and randomize necessary variables
-            const pX = player.getX();
-            const pY = player.getY();
+                let thing = 200;
 
-            const aX = (Math.random() * 200) + ((this.canvas.width/2)+pX);
-            const aY = (Math.random() * 200) + ((this.canvas.height/2)+pY);
+                const factor = Math.random();
+                if(factor<0.5)
+                {
+                    thing = thing*-1;
+                }
 
-            const aspeed = Math.random()*3;
+                const aX = (Math.random() * ((this.canvas.width)+pX))+thing;
+                const aY = (Math.random() * ((this.canvas.height)+pY))+thing;
 
-            this.addGameObject(new Alien(aX, aY, aspeed, player));
+                const aspeed = Math.random()*3.5;
 
-            //Temporarily disable spawning
-            this.canSpawn = false;
-            setTimeout(() => {
-                this.canSpawn = true;
-            }, 1000);
+                this.addGameObject(new Alien(aX, aY, aspeed, this.player));
+
+                //Temporarily disable spawning
+                this.canSpawn = false;
+                setTimeout(() => {
+                    this.canSpawn = true;
+                }, 500);
+            }
+
+            if(this.canAddScore)
+            {
+                this.score++;
+                this.canAddScore = false;
+
+                setTimeout(() => {
+                    this.canAddScore = true;
+                }, 250);
+            }
         }
+        else{
+            if(!this.announcedScore)
+            {
+                console.log("Game over! " + this.score + " points");
+                this.announcedScore = true;
+            }
+        }
+
     }
 }
 

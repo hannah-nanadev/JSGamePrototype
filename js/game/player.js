@@ -31,21 +31,21 @@ class Player extends GameObject
             const input = this.getComponent(Input);
 
             //Movement
-            if(input.isKeyDown("ArrowRight"))
+            if(input.isKeyDown("KeyD")||input.isKeyDown("ArrowRight"))
             {
-                physics.velocity.x = 750;
+                physics.velocity.x = 500;
             }
-            else if(input.isKeyDown("ArrowLeft"))
+            else if(input.isKeyDown("KeyA")||input.isKeyDown("ArrowLeft"))
             {
-                physics.velocity.x = -750;
+                physics.velocity.x = -500;
             }
-            else if(input.isKeyDown("ArrowUp"))
+            else if(input.isKeyDown("KeyW")||input.isKeyDown("ArrowUp"))
             {
-                physics.velocity.y = -750;
+                physics.velocity.y = -500;
             }
-            else if(input.isKeyDown("ArrowDown"))
+            else if(input.isKeyDown("KeyS")||input.isKeyDown("ArrowDown"))
             {
-                physics.velocity.y = 750;
+                physics.velocity.y = 500;
             }
             else
             {
@@ -108,8 +108,6 @@ class Player extends GameObject
     {
         return this.dead;
     }
-
-
     
 }
 

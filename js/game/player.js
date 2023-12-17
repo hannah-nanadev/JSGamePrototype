@@ -20,48 +20,57 @@ class Player extends GameObject
 
         this.lives = 3;
         this.isInvulnerable = false;
+        this.dead = false;
     }
 
     //Update function - Runs every frame, does game logic
     update(deltaTime)
     {
-        const physics = this.getComponent(Physics);
-        const input = this.getComponent(Input);
+        if(!this.dead){
+            const physics = this.getComponent(Physics);
+            const input = this.getComponent(Input);
 
-        //Movement
-        if(input.isKeyDown("ArrowRight"))
-        {
-            physics.velocity.x = 750;
-        }
-        else if(input.isKeyDown("ArrowLeft"))
-        {
-            physics.velocity.x = -750;
-        }
-        else if(input.isKeyDown("ArrowUp"))
-        {
-            physics.velocity.y = -750;
-        }
-        else if(input.isKeyDown("ArrowDown"))
-        {
-            physics.velocity.y = 750;
-        }
-        else
-        {
-            physics.velocity.x = 0;
-            physics.velocity.y = 0;
-        }
-
-        //Enemy collisions - taken and adapted from Naoise's code
-        const enemies = this.game.gameObjects.filter((obj) => obj instanceof Alien);
-        for(const enemy of enemies) {
-            if(physics.isColliding(enemy.getComponent(Physics)))
+            //Movement
+            if(input.isKeyDown("ArrowRight"))
             {
-                this.hitByEnemy();
+                physics.velocity.x = 750;
+            }
+            else if(input.isKeyDown("ArrowLeft"))
+            {
+                physics.velocity.x = -750;
+            }
+            else if(input.isKeyDown("ArrowUp"))
+            {
+                physics.velocity.y = -750;
+            }
+            else if(input.isKeyDown("ArrowDown"))
+            {
+                physics.velocity.y = 750;
+            }
+            else
+            {
+                physics.velocity.x = 0;
+                physics.velocity.y = 0;
+            }
+
+            //Enemy collisions - taken and adapted from Naoise's code
+            const enemies = this.game.gameObjects.filter((obj) => obj instanceof Alien);
+            for(const enemy of enemies) {
+                if(physics.isColliding(enemy.getComponent(Physics)))
+                {   
+                    this.hitByEnemy();
+                }
+            }
+
+
+            super.update(deltaTime);
+
+            if(this.lives==0)
+            {
+                this.die();
             }
         }
-
-
-        super.update(deltaTime);
+        
     }
 
     hitByEnemy(){
@@ -70,12 +79,21 @@ class Player extends GameObject
             //Take away lifes and give iframes
             this.lives--;
             this.isInvulnerable = true;
+            AudioFiles.hurt.play();
 
             //Wait until end of iframes then make vulnerable
             setTimeout(() => {
                 this.isInvulnerable = false;
             }, 2000);
         }
+    }
+
+    die(){
+        AudioFiles.explode.play();
+        this.dead = true;
+
+        const renderer = this.getComponent(Renderer);
+        renderer.setImage(Images.nothing);
     }
     
 }

@@ -42,6 +42,12 @@ class Renderer extends Component {
       ctx.fillRect(this.gameObject.x, this.gameObject.y, this.width, this.height);
     }
   }
+
+  //Method to change the image of an existing Renderer - added by me
+  setImage(imageId)
+  {
+    this.image = imageId;
+  }
 }
 
 // The Renderer class is then exported as the default export of this module.
